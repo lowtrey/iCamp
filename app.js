@@ -16,16 +16,16 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
+// mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 
-// mongoose.connect("mongodb+srv://qprice78:Oneman78@cluster0-jwyrx.mongodb.net/yelp_camp?retryWrites=true",{
-//     useNewUrlParser: true,
-//     useCreateIndex: true
-// }).then(() => {
-//     console.log("Connected to DB!");
-// }).catch(err => {
-//     console.log("ERROR:", err.message);
-// });
+mongoose.connect(process.env.DATABASEURL, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log("Connected to DB!");
+}).catch(err => {
+    console.log("ERROR:", err.message);
+});
 
 
 app.use(bodyParser.urlencoded({extended: true}));
