@@ -1,3 +1,4 @@
+//jshint esversion:6
 var express        = require("express"),
     app            = express(),
     bodyParser     = require("body-parser"),
@@ -16,8 +17,6 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-// mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
-
 mongoose.connect(process.env.DATABASEURL, {
     useNewUrlParser: true,
     useCreateIndex: true
@@ -35,7 +34,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 // seedDB(); //seed the database
 
-// PASSPORT CONFIGURATION
+// P A S S P O R T
 app.use(require("express-session")({
     secret: "Once again Rusty wins cutest dog!",
     resave: false,
