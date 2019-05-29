@@ -1,5 +1,5 @@
 //jshint esversion:6
-var express        = require("express"),
+const express      = require("express"),
     app            = express(),
     bodyParser     = require("body-parser"),
     mongoose       = require("mongoose"),
@@ -13,9 +13,9 @@ var express        = require("express"),
     seedDB         = require("./seeds");
 
 // Requiring Routes
-var commentRoutes    = require("./routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes      = require("./routes/index");
+const commentRoutes    = require("./routes/comments"),
+      campgroundRoutes = require("./routes/campgrounds"),
+      indexRoutes      = require("./routes/index");
 
 mongoose.connect(process.env.DATABASEURL, {
     useNewUrlParser: true,

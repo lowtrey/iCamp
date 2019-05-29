@@ -1,8 +1,8 @@
-var Campground = require("../models/campground");
-var Comment = require("../models/comment");
+const Campground = require("../models/campground");
+const Comment = require("../models/comment");
 
 // A L L   M I D D L E W A R E
-var middlewareObj = {};
+const middlewareObj = {};
 
 middlewareObj.checkCampgroundOwnership = function(req, res, next) {
   // is user logged in
