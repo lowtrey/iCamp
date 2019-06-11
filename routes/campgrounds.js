@@ -1,7 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const Campground = require("../models/campground");
-const middleware = require("../middleware");
+const express    = require("express"),
+      router     = express.Router(),
+      Campground = require("../models/campground"),
+      middleware = require("../middleware");
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res) {
@@ -21,19 +21,19 @@ router.get("/", function(req, res) {
 //CREATE - add new campground to DB
 router.post("/", middleware.isLoggedIn, function(req, res) {
   //get data from form and add to campgrounds array
-  let name = req.body.name;
-  let image = req.body.image;
-  let desc = req.body.description;
-  let author = {
-    id: req.user._id,
-    username: req.user.username
-  };
-  let newCampground = {
-    name: name,
-    image: image,
-    description: desc,
-    author: author
-  };
+  let name = req.body.name,
+      image = req.body.image,
+      desc = req.body.description,
+      author = {
+        id: req.user._id,
+        username: req.user.username
+      },
+      newCampground = {
+        name: name,
+        image: image,
+        description: desc,
+        author: author
+      };
   //Create a new campground and save to DB
   Campground.create(newCampground, function(err, newlyCreated) {
     if (err) {

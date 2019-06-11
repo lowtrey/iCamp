@@ -1,21 +1,20 @@
-const mongoose = require("mongoose");
-
+const mongoose = require("mongoose"),
 //S C H E M A   S E T U P
-const campgroundSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  description: String,
-  author: {
-    id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    },
-    username: String
-  },
-  comments: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Comment"
-  }]
-});
+      campgroundSchema = new mongoose.Schema({
+        name: String,
+        image: String,
+        description: String,
+        author: {
+          id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+          },
+          username: String
+        },
+        comments: [{
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Comment"
+        }]
+      });
 
 module.exports = mongoose.model("Campground", campgroundSchema);

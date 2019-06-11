@@ -1,16 +1,16 @@
 //jshint esversion:6
-const express      = require("express"),
-    app            = express(),
-    bodyParser     = require("body-parser"),
-    mongoose       = require("mongoose"),
-    flash          = require("connect-flash"),
-    passport       = require("passport"),
-    LocalStrategy  = require("passport-local"),
-    methodOverride = require("method-override"),
-    Campground     = require("./models/campground"),
-    Comment        = require("./models/comment"),
-    User           = require("./models/user"),
-    seedDB         = require("./seeds");
+const express          = require("express"),
+        app            = express(),
+        bodyParser     = require("body-parser"),
+        mongoose       = require("mongoose"),
+        flash          = require("connect-flash"),
+        passport       = require("passport"),
+        LocalStrategy  = require("passport-local"),
+        methodOverride = require("method-override"),
+        Campground     = require("./models/campground"),
+        Comment        = require("./models/comment"),
+        User           = require("./models/user"),
+        seedDB         = require("./seeds");
 
 // Requiring Routes
 const commentRoutes    = require("./routes/comments"),
@@ -26,13 +26,11 @@ mongoose.connect(process.env.DATABASEURL, {
     console.log("ERROR:", err.message);
 });
 
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-// seedDB(); //seed the database
 
 // P A S S P O R T
 app.use(require("express-session")({
